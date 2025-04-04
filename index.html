@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team Celestra Sensor</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <!-- Status Indicator -->
+    <div class="status-indicator" id="statusIndicator">Disconnected</div>
+
+    <section class="wrapper">
+        <div class="page" id="page1">
+            <div id="title">
+                <span>TEAM</span>
+                <br>
+                <span>CELESTRA</span>
+            </div>
+        </div>
+
+        <div class="page" id="page2">
+            <div class="button-container">
+                <button class="toggle-btn" onclick="showContent('content1')">POWER</button>
+                <button class="toggle-btn" onclick="showContent('content2')">ORIENTATION</button>
+            </div>
+
+            <div id="content1" class="content-box1">
+                <h2><span>INA SENSOR : </span><br>READINGS </h2>
+                <div class="sensor-container">
+                    <div class="sensor-box" id="busVoltage">Bus Voltage: Waiting... V</div>
+                    <div class="sensor-box" id="current">Current: Waiting... mA</div>
+                    <div class="sensor-box" id="power">Power: Waiting... mW</div>
+                    <div class="sensor-box" id="shuntVoltage">Shunt Voltage: Waiting... mV</div>
+                    <div class="sensor-box" id="loadVoltage">Load Voltage: Waiting... V</div> 
+                </div>
+
+                <!-- Chart Navigation Buttons -->
+                <div class="chart-nav">
+                    <button class="btn-arrow btn-arrow-left" onclick="prevChart()"></button>
+                    <button class="btn-arrow btn-arrow-right" onclick="nextChart()"></button>
+                </div>
+
+                
+                <!-- Chart Container -->
+                <div id="chartContainer">
+                    <canvas id="currentChart"></canvas>
+                    <canvas id="powerChart" style="display: none;"></canvas>
+                    <canvas id="busVoltageChart" style="display: none;"></canvas>
+                </div>
+                
+            </div>
+            
+            <div id="content2" class="content-box2">
+                <h2>3D Orientation</h2>
+                <p>Using MPU data</p>
+            </div>
+        </div>
+
+        <div class="page" id="page3">
+            <button id="toggleGlobe" class="toggle-globe-btn" onclick="toggleGlobe()">Toggle Globe / Map</button>
+
+            <div class="gps">
+                <canvas id="globe"></canvas>
+                <div id="map"></div>
+
+                <div id="page3-box">
+                    <p> Will display Latitude and Longitude here, and also put a pin on the globe/map </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="javascript.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+    </script>
+</body>
+</html>
