@@ -1,6 +1,6 @@
 
 
-# Real-Time Sensor Data Visualization Website for a Cubesat (Team celestra)
+# Real-Time Sensor Data Visualization Website for a Cubesat 
 
 # Project Status - Ongoing 
 
