@@ -1,0 +1,2 @@
+textures/** filter=lfs diff=lfs merge=lfs -text
+texture/** filter=lfs diff=lfs merge=lfs -text
