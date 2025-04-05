@@ -6,6 +6,11 @@ const rotationDamping = 0.97;
 let earthMesh;
 let pinMeshes = []; // Store pin objects for removal
 
+// ✅ Detect if running on GitHub Pages
+const basePath = window.location.hostname.includes("github.io")
+  ? "/Real-Time-Sensor-Data-Visualization-Website/"
+  : "/";
+
 function onDocumentMouseDown(event) {
     event.preventDefault();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -72,8 +77,7 @@ function addPinToGlobe(lat, lon) {
 // **Updated Function: Fetch GPS Data Every 5 Seconds**
 async function fetchGPSData() {
     try {
-        // Simulating GPS fetching (Replace with actual GPS API call)
-        const response = await fetch("gps_data.json"); // Example API
+        const response = await fetch("gps_data.json"); // Update if needed for GitHub path
         const data = await response.json();
         const lat = data.latitude;
         const lon = data.longitude;
@@ -93,8 +97,8 @@ function main() {
     // Earth Sphere
     const earthGeometry = new THREE.SphereGeometry(0.5, 32, 32);
     const earthMaterial = new THREE.MeshPhongMaterial({
-        map: new THREE.TextureLoader().load("texture/earthmap.jpeg"),
-        bumpMap: new THREE.TextureLoader().load("texture/earthbump.jpeg"),
+        map: new THREE.TextureLoader().load(basePath + "texture/earthmap.jpeg"),
+        bumpMap: new THREE.TextureLoader().load(basePath + "texture/earthbump.jpeg"),
         bumpScale: 1,
     });
     earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -108,7 +112,7 @@ function main() {
     // Clouds
     const cloudGeometry = new THREE.SphereGeometry(0.52, 32, 32);
     const cloudMaterial = new THREE.MeshPhongMaterial({
-        map: new THREE.TextureLoader().load("texture/earthCloud.png"),
+        map: new THREE.TextureLoader().load(basePath + "texture/earthCloud.png"),
         transparent: true,
     });
     const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
@@ -117,7 +121,7 @@ function main() {
     // Stars Background
     const starGeometry = new THREE.SphereGeometry(5, 64, 64);
     const starMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load("texture/galaxy.png"),
+        map: new THREE.TextureLoader().load(basePath + "texture/galaxy.png"),
         side: THREE.BackSide,
     });
     const starMesh = new THREE.Mesh(starGeometry, starMaterial);
@@ -149,7 +153,7 @@ function main() {
     animate();
     document.addEventListener("mousedown", onDocumentMouseDown, false);
 
-    // **Handle Window Resizing**
+    // Handle Window Resizing
     window.addEventListener("resize", () => {
         renderer.setSize(globeContainer.clientWidth, globeContainer.clientHeight);
         camera.aspect = globeContainer.clientWidth / globeContainer.clientHeight;
@@ -158,4 +162,3 @@ function main() {
 }
 
 window.onload = main;
-
