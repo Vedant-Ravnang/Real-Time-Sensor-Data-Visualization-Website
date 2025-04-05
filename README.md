@@ -4,7 +4,7 @@
 
 # Project Status - Ongoing 
 
-**Demo:** [real-time-sensor-data-visualization.netlify.app](https://real-time-sensor-data-visualization.netlify.app/)
+**Demo:** [real-time-sensor-data-visualization.netlify.app](https://real-time-sensor-data-visualization.netlify.app/)  
 **Note : The globe may take some time to load**
 
 ## Overview:
