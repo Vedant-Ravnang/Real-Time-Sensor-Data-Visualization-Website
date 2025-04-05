@@ -4,6 +4,9 @@
 
 # Project Status - Ongoing 
 
+Demo: real-time-sensor-data-visualization.netlify.app|
+Note : The globe may take some time to load
+
 ## Overview:
 This is a real-time web application that visualizes sensor data in reak time from an ESP32 board. The website features an animated stars background mathching the theme of space. Second page displayes the live Data from on INA sensor (Power management Board) and visualize it dynamically in live charts.In future it will also feature live 3D visualization of cubesat using mpu6050 sensor. Third Page uses NEO-6M GPS module to visualize live loaction of the satelltie on a 3D Globe made uisng Three.js and Webgl.Users can navigate interact with the globe.User can also Toggle between 3D view and 2d view which uses Leaflet and openstreetmaps to create a Map.The map will diaplay the location in 2d view.
 
