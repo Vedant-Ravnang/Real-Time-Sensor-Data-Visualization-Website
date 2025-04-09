@@ -293,7 +293,7 @@ function updateCharts(currentValue, powerValue, voltageValue) {
 
 // Function to establish WebSocket connection
 function connectWebSocket() {
-    ws = new WebSocket("wss://24cd-2401-4900-7c6f-35d0-e0ed-cba6-aae9-56a7.ngrok-free.app/ws");
+    ws = new WebSocket("wss://your-websocket-server-url/ws");
 
     ws.onopen = function () {
         document.getElementById("statusIndicator").innerText = "Connected";
